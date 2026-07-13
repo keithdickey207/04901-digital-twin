@@ -1,4 +1,0 @@
-; Engine configuration file.
-[application]
-config/name="04901_Spatial_Matrix"
-config/features=PackedStringArray("4.2", "Forward Plus")

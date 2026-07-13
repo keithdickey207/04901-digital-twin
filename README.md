@@ -1,21 +1,37 @@
 # 04901 Digital Twin — Spatial Matrix
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Godot](https://img.shields.io/badge/Godot-4.2-blue.svg)](https://godotengine.org/)
+[![Engine](https://img.shields.io/badge/Engine-Sovereign%20Spatial-green.svg)](.)
 
-Godot-based sovereign digital twin for the Waterville, ME (04901) lattice.
+**Custom sovereign spatial engine** for the Waterville, ME (04901) lattice.
 
-Part of the **Aether / Sovereign** stack. Ingests neural spike telemetry from the
-5D Loom pipeline and engraves vertices into a persistent point-cloud OBJ lattice.
+Part of **Sovereign Earth Engine** (Blueprint **v5.0**) / Aether stack. Ingests neural spike
+telemetry from the 5D Loom pipeline and engraves vertices into a persistent point-cloud OBJ lattice.
+
+> **No third-party game engines.** Pure Python + stdlib. Your lattice. Your engine.
+
+> **Stack pointer:** [`SEE_STACK.md`](SEE_STACK.md) · Blueprint: `~/projects/sovereign-earth/docs/BLUEPRINT_PACKAGE_2026-07-09/`  
+> Dashboard: `bash ~/projects/sovereign-engine/start-earth.sh`
 
 ## Components
 
 | File | Role |
 |------|------|
-| `scripts/ram_ingest.gd` | Headless ingest: reads `/dev/shm/sovereign_spikes.json`, appends OBJ vertices |
-| `scripts/telemetry_ingest.gd` | Spatial delta calculator for lattice origin vs signal vectors |
-| `project.godot` | Godot 4.2 project config (`04901_Spatial_Matrix`) |
-| `commons_pulse.gd` | Commons pulse visualization (legacy) |
+| `spatial_matrix.py` | Core: GPS→local, lattice OBJ, SHM ingest, frame JSON |
+| `scripts/ram_ingest.py` | Headless: `/dev/shm/sovereign_spikes.json` → lattice vertices |
+| `scripts/telemetry_ingest.py` | Spatial delta calculator (origin vs signal) |
+| `scripts/defense_ingest.py` | DEFCON / defense layers → lattice |
+| `scripts/god_mode_ingest.py` | Multi-spectrum defensive COP paint |
+| `scripts/commons_pulse.py` | Ops API poll → local meters |
+
+Lattice output (default):
+
+```
+~/.local/share/sovereign/04901_lattice/04901_lattice.obj
+~/.local/share/sovereign/04901_lattice/spatial_frame.json
+```
+
+Override with `SOVEREIGN_LATTICE_DIR`.
 
 ## Waterville Lattice Origin
 
@@ -30,26 +46,42 @@ git clone https://github.com/keithdickey207/04901-digital-twin.git
 cd 04901-digital-twin
 
 # One-shot telemetry ingest (requires spike JSON from phonon bridge)
-godot --headless -s scripts/ram_ingest.gd
+python3 scripts/ram_ingest.py
 
 # Spatial delta demo
-godot --headless -s scripts/telemetry_ingest.gd
+python3 scripts/telemetry_ingest.py
+
+# Defense posture engrave
+python3 scripts/defense_ingest.py
+
+# God Mode COP paint
+python3 scripts/god_mode_ingest.py
 ```
+
+## Full stack simulation (must be 100% green)
+
+```bash
+# Prefer sovereign_venv (numpy + stack deps)
+~/sovereign_venv/bin/python scripts/run_full_simulation.py
+```
+
+Runs phonon → spatial twin → defense → earth scan → domain math → loom once.
+Exit code `0` only when every stage passes.
 
 ## 5D Loom Pipeline
 
 ```
 LEO/SDR intercept → phonon_bridge.py → /dev/shm/sovereign_spikes.json
                                               ↓
-                                    ram_ingest.gd (this repo)
+                                    ram_ingest.py (this repo)
                                               ↓
-                              user://04901_lattice.obj (point cloud)
+                    ~/.local/share/sovereign/04901_lattice/*.obj
 ```
 
 See also:
 - [aether/sovereign/daemons](https://github.com/keithdickey207/aether/tree/main/sovereign/daemons) — phonon bridge + loom heartbeat
 - [04901-sentinel](https://github.com/keithdickey207/04901-sentinel) — LEO tracking + RTL-SDR handoff
-- [04901-alchemical-chamber](https://github.com/keithdickey207/04901-alchemical-chamber) — Newton's lab node
+- [sovereign-engine](https://github.com/keithdickey207/sovereign-engine) — React command dashboard
 
 ## License
 

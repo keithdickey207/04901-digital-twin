@@ -1,0 +1,9 @@
+# Sovereign spatial twin
+__pycache__/
+*.py[cod]
+*.obj
+spatial_frame.json
+.lattice/
+.spatial/
+*.import
+.export/
