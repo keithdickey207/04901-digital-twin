@@ -35,9 +35,13 @@ Override with `SOVEREIGN_LATTICE_DIR`.
 
 ## Waterville Lattice Origin
 
-- **Lat (X):** 44.5520
-- **Lon (Z):** -69.6317
-- **Alt (Y):** spike count from phonon bridge
+| Axis | Value |
+|------|-------|
+| **Lat (X)** | 44.5520 |
+| **Lon (Z)** | -69.6317 |
+| **Alt (Y)** | spike count from phonon bridge |
+
+Same anchor as District 04901 Grid, chronosat, and dickey-sovereign-core telemetry mesh.
 
 ## Quick Start
 
@@ -82,6 +86,29 @@ See also:
 - [aether/sovereign/daemons](https://github.com/keithdickey207/aether/tree/main/sovereign/daemons) — phonon bridge + loom heartbeat
 - [04901-sentinel](https://github.com/keithdickey207/04901-sentinel) — LEO tracking + RTL-SDR handoff
 - [sovereign-engine](https://github.com/keithdickey207/sovereign-engine) — React command dashboard
+
+## Sovereign Stack
+
+| Project | Role |
+|---------|------|
+| **[Aether Core](https://github.com/keithdickey207/aether)** | Brain hub — USD-4 protocol, RF lab, medical, Godot 4 bridge |
+| **[District 04901 Grid](https://github.com/keithdickey207/District_04901_Grid)** | Spatial C2 — React VM canvas, UDP/WS telemetry mesh |
+| **[dickey-sovereign-core](https://github.com/keithdickey207/dickey-sovereign-core)** | Fusion + tactile physics + LogisticsMatrix |
+| **[waterville-ar](https://github.com/keithdickey207/waterville-ar)** | Godot city builder — 78 building footprints |
+| **04901-digital-twin** (this repo) | Godot 3D spatial matrix — spike lattice OBJ |
+| **[04901-alchemical-chamber](https://github.com/keithdickey207/04901-alchemical-chamber)** | Godot Newton chymical lab node |
+| **[chronosat](https://github.com/keithdickey207/chronosat)** | Orbital daemon + historical Landsat viewer |
+| **[04901-sentinel](https://github.com/keithdickey207/04901-sentinel)** | NORAD tracker + bug bounty hunter |
+| **[04901_Taxi_Dispatch](https://github.com/keithdickey207/04901_Taxi_Dispatch)** | Local-first taxi dispatch + fleet sim |
+| **[document-fraud-detection-engine](https://github.com/keithdickey207/document-fraud-detection-engine)** | Sovereign document forensics |
+| **[secure-self-healing-orchestrator](https://github.com/keithdickey207/secure-self-healing-orchestrator)** | Zero-trust LLM self-repair + FBI OSINT |
+| **[newtons-alchemical-lab](https://github.com/keithdickey207/newtons-alchemical-lab)** | Historical chymistry CLI explorer |
+| **[sovereign-sync](https://github.com/keithdickey207/sovereign-sync)** | Mesh glue — Syncthing, Tailscale, worktrees |
+| **[dotfiles](https://github.com/keithdickey207/dotfiles)** | Multi-device bootstrap shell + env |
+| **[goodperson](https://github.com/keithdickey207/goodperson)** | Good Person Protocol — daily practice CLI |
+
+Sync mesh: Tailscale + Syncthing + git worktrees — see `~/SOVEREIGN_SYNC_QUICKSTART.md` and [sovereign-sync](https://github.com/keithdickey207/sovereign-sync).
+
 
 ## License
 
